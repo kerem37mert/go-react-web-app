@@ -2,15 +2,40 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"github.com/rs/cors"
 	"net/http"
 )
 
-func main() {
+// Handler Functions
+func usersHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Write([]byte("{\"hello\": \"world\"}"))
+}
 
-	http.HandleFunc("/users", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "kerem")
+func contentsHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Contents endpoint")
+}
+
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "About endpoint")
+}
+
+func main() {
+	// New ServeMux
+	mux := http.NewServeMux()
+
+	mux.HandleFunc("/users", usersHandler)
+	mux.HandleFunc("/about", aboutHandler)
+
+	// CORS ayarları
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"http://localhost:5173"}, // İzin verilen origin
+		//AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},  // İzin verilen metodlar
+		//AllowedHeaders:   []string{"Content-Type", "Authorization"}, // İzin verilen headerlar
+		AllowCredentials: true,
 	})
 
-	log.Fatal(http.ListenAndServe(":9876", nil))
+	// CORS middleware'i kullanarak HTTP sunucusunu başlatın
+	handler := c.Handler(mux)
+	http.ListenAndServe(":9876", handler)
 }
