@@ -1,5 +1,5 @@
 import React from "react"
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 // Contexts
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -11,18 +11,15 @@ import Home from "./pages/home";
 import Navbar from "./components/Navbar";
 
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />
-    }
-])
-
 const App: React.FC = () => {
     return(
         <ThemeProvider>
-            <Navbar />
-            <RouterProvider router={ router } />
+            <BrowserRouter>
+                <Navbar />
+                <Routes>
+                    <Route index element={<Home />} />
+                </Routes>
+            </BrowserRouter>
         </ThemeProvider>
     );
 }

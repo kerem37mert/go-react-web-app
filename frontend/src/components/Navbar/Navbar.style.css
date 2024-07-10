@@ -1,7 +1,37 @@
-.navbar-container-white {
-    background-color: white;
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+.navbar-container-light {
+    background-color: var(--primary);
+    color: #fff;
 }
 
 .navbar-container-dark {
-    background-color: black;
+    background-color: var(--primary);
+}
+
+.navbar-logo {
+    height: 60px;
+    width: 120px;
+}
+
+.navbar-link-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-link {
+    color: var(--text-light);
+    font-size: 1em;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.theme-button {
+    cursor: pointer;
+    margin: 0 15px;
 }
