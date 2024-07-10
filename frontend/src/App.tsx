@@ -9,6 +9,7 @@ import Home from "./pages/home";
 
 // Components
 import Navbar from "./components/Navbar";
+import Body from "./components/Body";
 
 
 const App: React.FC = () => {
@@ -16,9 +17,11 @@ const App: React.FC = () => {
         <ThemeProvider>
             <BrowserRouter>
                 <Navbar />
-                <Routes>
-                    <Route index element={<Home />} />
-                </Routes>
+                <Body>
+                    <Routes>
+                        <Route index element={<Home />} />
+                    </Routes>
+                </Body>
             </BrowserRouter>
         </ThemeProvider>
     );

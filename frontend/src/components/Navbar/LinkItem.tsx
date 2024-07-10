@@ -7,7 +7,7 @@ interface LinkItemProps {
     text: string
 }
 
-const LinkItem: React.FC<LinkItemProps> = ({ to, text}) => {
+const LinkItem: React.FC<LinkItemProps> = ({ to, text }) => {
     return(
         <Link className="navbar-link" to={ to } >{ text }</Link>
     );

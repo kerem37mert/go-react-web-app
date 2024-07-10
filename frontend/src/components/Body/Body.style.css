@@ -1,0 +1,13 @@
+.body {
+    display: flex;
+    height: 100vh;
+    overflow: auto;
+}
+
+.body-dark {
+    background-color: var(--bg-dark);
+}
+
+.body-light {
+    background-color: var(--bg-light);
+}
