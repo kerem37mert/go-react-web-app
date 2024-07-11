@@ -10,10 +10,14 @@ const ThemeButton: React.FC = () => {
     const { theme, setTheme } = useContext(ThemeContext);
 
     const themeChangeHandler = () => {
-        if(theme == "light")
+        if (theme == "light") {
             setTheme("dark");
-        else
-            setTheme("light");
+            localStorage.setItem("theme", "dark");
+        }
+        else {
+             setTheme("light");
+             localStorage.setItem("theme", "light");
+        }
     }
 
     return(
