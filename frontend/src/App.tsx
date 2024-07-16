@@ -11,6 +11,7 @@ import Home from "./pages/home";
 import Navbar from "./components/Navbar";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import Main from "./components/Main";
 
 
 const App: React.FC = () => {
@@ -19,9 +20,11 @@ const App: React.FC = () => {
             <BrowserRouter>
                 <Navbar />
                 <Body>
-                    <Routes>
-                        <Route index element={<Home />} />
-                    </Routes>
+                    <Main>sasdf
+                        <Routes>
+                            <Route index element={<Home />} />
+                        </Routes>
+                    </Main>
                     <Footer />
                 </Body>
             </BrowserRouter>
