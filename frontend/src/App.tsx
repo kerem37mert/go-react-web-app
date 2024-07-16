@@ -10,6 +10,7 @@ import Home from "./pages/home";
 // Components
 import Navbar from "./components/Navbar";
 import Body from "./components/Body";
+import Footer from "./components/Footer";
 
 
 const App: React.FC = () => {
@@ -21,6 +22,7 @@ const App: React.FC = () => {
                     <Routes>
                         <Route index element={<Home />} />
                     </Routes>
+                    <Footer />
                 </Body>
             </BrowserRouter>
         </ThemeProvider>

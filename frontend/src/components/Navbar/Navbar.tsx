@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
     const { theme } = useContext(ThemeContext)
 
     return(
-        <div className={`navbar navbar-container-${theme}`}>
+        <div className={`navbar`}>
             <Logo src="/img/logo.png" alt="Text Queue" />
             <div className="navbar-link-container">
                 <LinkItem  to="/" text="Ana Sayfa" />
